@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+db:
+  driver: com.mysql.cj.jdbc.Driver
+  initialSize: 2
+  minIdle: 1
+  maxActive: 2
+  masterConfig: root 123456 jdbc:mysql://127.0.0.1:3306/shiroTest?useSSL=false&serverTimezone=UTC
+  slaveConfig: root 123456 jdbc:mysql://127.0.0.1:3306/shiroTest?useSSL=false&serverTimezone=UTC
