@@ -8,3 +8,5 @@ db:
   maxActive: 2
   masterConfig: root 123456 jdbc:mysql://127.0.0.1:3306/shiroTest?useSSL=false&serverTimezone=UTC
   slaveConfig: root 123456 jdbc:mysql://127.0.0.1:3306/shiroTest?useSSL=false&serverTimezone=UTC
+check:
+  token: true

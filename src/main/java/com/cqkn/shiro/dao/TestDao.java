@@ -25,7 +25,7 @@ public class TestDao {
         List<User> user = MapToBeanUtils.convertMapToBean(maps,User.class);
         User user1 = user.get(0);
         System.out.println(user1.getPassword());
-        return user1.getPhone();
+        return user1.getPassword();
 
     }
 }
