@@ -57,6 +57,8 @@ public class BaseAuthAndLoginAop {
                     if (user == null){
                         return GeneralResponse.failedResponse("请先登录!");
                     }
+                    //如果用户不为空，那么这里可以去检验token
+                    checkToken(login,request,method);
                 }
             }
             result = pjp.proceed();
@@ -81,6 +83,10 @@ public class BaseAuthAndLoginAop {
             }
         }
         return result;
+    }
+
+    private void checkToken(Login login, HttpServletRequest request, Method method) {
+
     }
 
 

@@ -38,12 +38,13 @@ public class CustomRealm extends AuthorizingRealm {
         String userName = (String) authenticationToken.getPrincipal();
         String userPwd = new String((char[]) authenticationToken.getCredentials());
         //根据用户名从数据库获取密码
-        String password = testDao.test();
+        String password = testDao.test(userName);
         if (userName == null) {
             throw new AccountException("用户名不正确");
         } else if (!userPwd.equals(password )) {
             throw new AccountException("密码不正确");
         }
-        return new SimpleAuthenticationInfo(userName, password,getName());
+        AuthenticationInfo authenticationInfo =  new SimpleAuthenticationInfo(userName, password,getName());
+        return authenticationInfo;
     }
 }

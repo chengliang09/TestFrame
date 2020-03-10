@@ -4,7 +4,6 @@ import com.cqkn.shiro.aop.Login;
 import com.cqkn.shiro.dao.TestDao;
 import com.cqkn.shiro.entity.User;
 import com.leyongleshi.commons.web.GeneralResponse;
-import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -27,14 +26,14 @@ public class TestController {
     private TestDao testDao;
 
     @Login
-    @PostMapping("/get")
+    @GetMapping("/get")
     public GeneralResponse<String> getBuyMethod(HttpServletRequest request) {
         HttpSession session= request.getSession(true);
         User user = (User) session.getAttribute("user");
         if (user == null){
             return GeneralResponse.failedResponse("请先登录");
         }
-        String test = testDao.test();
+        String test = testDao.test(user.getPhone());
         return GeneralResponse.successResponse(test);
     }
 
@@ -50,5 +49,13 @@ public class TestController {
         }
         session.setAttribute("user",user);
         return GeneralResponse.successResponse("success");
+    }
+
+    @Login
+    @GetMapping("/logout")
+    public GeneralResponse<Boolean> logout(HttpServletRequest request){
+        HttpSession session = request.getSession(true);
+        session.removeAttribute("user");
+        return GeneralResponse.successResponse(true);
     }
 }

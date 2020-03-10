@@ -19,6 +19,16 @@ public class TestDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    public String test(String userName){
+        String sql = "select * from shiro_user where phone = ?";
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql, userName);
+        List<User> user = MapToBeanUtils.convertMapToBean(maps,User.class);
+        User user1 = user.get(0);
+        System.out.println(user1.getPassword());
+        return user1.getPassword();
+
+    }
+
     public String test(){
         String sql = "select * from shiro_user where phone = ?";
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql, "15196705987");

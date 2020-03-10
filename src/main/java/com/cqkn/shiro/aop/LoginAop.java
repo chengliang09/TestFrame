@@ -20,9 +20,7 @@ public class LoginAop extends BaseAuthAndLoginAop {
     }
 
     @Override
-    @Around(value = "@annotation(org.springframework.web.bind.annotation.RequestMapping) || " +
-            "@annotation(org.springframework.web.bind.annotation.PostMapping) || " +
-            "@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    @Around(value = "@annotation(com.cqkn.shiro.aop.Login)")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("进入aop");
         return super.around(pjp);
