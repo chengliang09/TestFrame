@@ -1,0 +1,45 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.html
+*.css
+*.js
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+.mvn
+*.scss
+*.gif
+*.png
+*.eot
+*.woff
+*.jpg
+*.svg
+*.ttf
+*.php
+*.ico
+*.map
+*.coffee
+*.jpeg
+*.md
+*.less
+*.txt
+*.OTF
