@@ -28,7 +28,7 @@
     </build>
 
     <properties>
-        <version.spring>4.3.16.RELEASE</version.spring>
+        <version.spring>6.1.14</version.spring>
     </properties>
 
     <dependencies>
